@@ -84,7 +84,7 @@ def display_tasks(tasks: List[Dict[str, Any]]) -> None:
     Args:
         tasks (List[Dict[str, Any]]): List of tasks to display.
     """
-    print("\n📋 Recommended Task Order:")
+    print("\n Recommended Task Order:")
     print("-" * 45)
     for i, task in enumerate(tasks, start=1):
         print(f"{i}. {task['name']:<20} | Urgency: {task['urgency']} | "
@@ -125,6 +125,7 @@ def main() -> None:
 # Entry point
 if __name__ == "__main__":
     main()
+
 
 
 
