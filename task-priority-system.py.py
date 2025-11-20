@@ -22,13 +22,13 @@ def validate_tasks(tasks: List[Dict[str, Any]]) -> bool:
     """
     for task in tasks:
         if not all(key in task for key in ["name", "duration", "urgency"]):
-            print(f"❌ Missing keys in task: {task}")
+            print(f" Missing keys in task: {task}")
             return False
         if not isinstance(task["duration"], (int, float)) or task["duration"] <= 0:
-            print(f"❌ Invalid duration in task: {task['name']}")
+            print(f" Invalid duration in task: {task['name']}")
             return False
         if not isinstance(task["urgency"], int) or not (1 <= task["urgency"] <= 5):
-            print(f"❌ Urgency must be between 1 and 5 in task: {task['name']}")
+            print(f" Urgency must be between 1 and 5 in task: {task['name']}")
             return False
     return True
 
@@ -105,11 +105,11 @@ def main() -> None:
         {"name": "Team meeting", "duration": 45, "urgency": 5}
     ]
 
-    print("✅ Starting Task Prioritization System...")
+    print(" Starting Task Prioritization System...")
 
     # Step 1: Validate task data
     if not validate_tasks(tasks):
-        print("⚠️ Task list invalid. Exiting program.")
+        print(" Task list invalid. Exiting program.")
         return
 
     # Step 2: Assign priorities
@@ -125,5 +125,6 @@ def main() -> None:
 # Entry point
 if __name__ == "__main__":
     main()
+
 
 
