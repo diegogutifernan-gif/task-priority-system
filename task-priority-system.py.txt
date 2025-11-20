@@ -1,0 +1,35 @@
+# =====================================================
+# Task Prioritization System
+# License: MIT License
+# =====================================================
+# This script calculates and displays the priority of a list of tasks.
+# Each task has a name, duration, and urgency level.
+# The algorithm assigns a score to each task and sorts them accordingly.
+# =====================================================
+
+from typing import List, Dict, Any
+
+
+def validate_tasks(tasks: List[Dict[str, Any]]) -> bool:
+    """
+    Validate that all tasks have correct structure and values.
+    """
+    for task in tasks:
+        if not all(key in task for key in ["name", "duration", "urgency"]):
+            print(f"❌ Missing keys in task: {task}")
+            return False
+        if not isinstance(task["duration"], (int, float)) or task["duration"] <= 0:
+            print(f"❌ Invalid duration in task: {task['name']}")
+            return False
+        if not isinstance(task["urgency"], int) or not (1 <= task["urgency"] <= 5):
+            print(f"❌ Urgency must be between 1 and 5 in task: {task['name']}")
+            return False
+    return True
+
+
+def calculate_priority(duration: float, urgency: int) -> float:
+    """
+    Calculate the priority score for a task.
+    """
+    priority = urgency * 2 + (60 / duration)
+    return round
